@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A Practical Guide to Human-AI Collaboration for UX Teams</title>
+  <meta name="description" content="A web-based report on where AI helps and where human judgment matters at each stage of the UX design process.">
+  <!-- Font: Plus Jakarta Sans, matching the Figma page design -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============ COVER (title page) ============ -->
+  <header class="cover" id="top">
+    <div class="cover-inner">
+      <!-- Logo concept from the proposal: a quill whose tip breaks into small stars -->
+      <svg class="mark" viewBox="0 0 120 120" role="img" aria-labelledby="mark-title">
+        <title id="mark-title">A quill whose tip dissolves into small stars</title>
+        <path class="mark-quill" d="M98 10 C70 16 46 40 38 72 L34 88 L50 83 C80 74 102 46 98 10 Z"/>
+        <path class="mark-spine" d="M95 16 L37 85"/>
+        <path class="mark-star s1" d="M24 89 Q24 98 33 98 Q24 98 24 107 Q24 98 15 98 Q24 98 24 89 Z"/>
+        <path class="mark-star s2" d="M9 104 Q9 110 15 110 Q9 110 9 116 Q9 110 3 110 Q9 110 9 104 Z"/>
+        <path class="mark-star s3" d="M34 109 Q34 114 39 114 Q34 114 34 119 Q34 114 29 114 Q34 114 34 109 Z"/>
+      </svg>
+      <h1>A Practical Guide to Human-AI Collaboration for UX Teams</h1>
+      <p class="cover-sub">Where AI can speed up the design process, and where designers should stay in charge.</p>
+      <p class="byline">Divine Mbabazi <!-- TODO: add course name --></p>
+      <p class="updated">Last updated October 2026</p>
+    </div>
+  </header>
+
+  <div class="layout">
+
+    <!-- ============ TABLE OF CONTENTS ============
+         Stays in view while you scroll (position: sticky in styles.css).
+         Each link jumps to the section whose id matches its href. -->
+    <nav class="toc" aria-labelledby="toc-title">
+      <!-- Card header, like the Ethisphere report's contents panel -->
+      <div class="toc-brand">
+        <svg class="toc-mark" viewBox="0 0 120 120" aria-hidden="true">
+          <path class="mark-quill" d="M98 10 C70 16 46 40 38 72 L34 88 L50 83 C80 74 102 46 98 10 Z"/>
+          <path class="mark-star s1" d="M24 89 Q24 98 33 98 Q24 98 24 107 Q24 98 15 98 Q24 98 24 89 Z"/>
+          <path class="mark-star s2" d="M9 104 Q9 110 15 110 Q9 110 9 116 Q9 110 3 110 Q9 110 9 104 Z"/>
+        </svg>
+        <div>
+          <p class="toc-kicker">Human-AI Collaboration</p>
+          <p class="toc-meta">Course project · October 2026</p>
+        </div>
+      </div>
+      <details class="toc-details" open>
+        <summary id="toc-title">Table of Contents</summary>
+        <ol>
+          <li><a href="#summary"><span class="toc-num" aria-hidden="true">01</span><span class="toc-label">Executive Summary</span></a></li>
+          <li><a href="#ch1"><span class="toc-num" aria-hidden="true">02</span><span class="toc-label">AI as the Junior Partner</span></a></li>
+          <li><a href="#ch2"><span class="toc-num" aria-hidden="true">03</span><span class="toc-label">Discovery &amp; Research</span></a></li>
+          <li><a href="#ch3"><span class="toc-num" aria-hidden="true">04</span><span class="toc-label">Problem Definition &amp; IA</span></a></li>
+          <li><a href="#ch4"><span class="toc-num" aria-hidden="true">05</span><span class="toc-label">Ideation, Wireframing &amp; Copywriting</span></a></li>
+          <li><a href="#ch5"><span class="toc-num" aria-hidden="true">06</span><span class="toc-label">Prototyping, Usability Testing &amp; Handoff</span></a></li>
+          <li><a href="#troubleshooting"><span class="toc-num" aria-hidden="true">07</span><span class="toc-label">Troubleshooting</span></a></li>
+          <li><a href="#conclusion"><span class="toc-num" aria-hidden="true">08</span><span class="toc-label">Conclusion</span></a></li>
+          <li><a href="#glossary"><span class="toc-num" aria-hidden="true">09</span><span class="toc-label">Glossary</span></a></li>
+          <li><a href="#references"><span class="toc-num" aria-hidden="true">10</span><span class="toc-label">References</span></a></li>
+          <li><a href="#appendix"><span class="toc-num" aria-hidden="true">11</span><span class="toc-label">Appendix</span></a></li>
+        </ol>
+      </details>
+      <a class="toc-top" href="#top">↑ Back to top</a>
+    </nav>
+
+    <main id="main">
+
+      <!-- ============ 01 EXECUTIVE SUMMARY ============ -->
+      <section id="summary" aria-labelledby="summary-h">
+        <p class="chapter-num">01</p>
+        <h2 id="summary-h">Executive Summary</h2>
+        <p>UX design looks different than it did three or four years ago. Back then, a UX designer's or product manager's primary focus was manual execution: wireframing, prototyping, and producing deliverables by hand. Today, AI can take on much of that execution, and the required skill set is shifting toward high-level design evaluation and functional prototyping.</p>
+        <p>That shift doesn't remove the designer from the process. AI can speed up nearly every stage of UX work, but it still needs human oversight to catch errors, question its output, and keep the user at the center of every decision.</p>
+        <p>This guide shows where that balance lies. Organized around the <button type="button" class="term" data-term="double-diamond">Double Diamond framework</button>, it walks through each stage of the UX process, from discovery and research to prototyping and handoff. At each stage, it identifies which tasks AI can handle, which ones call for human judgment, and how to work with AI as a junior partner rather than a replacement.</p>
+      </section>
+
+      <!-- ============ 02 AI AS THE JUNIOR PARTNER ============ -->
+      <section id="ch1" class="chapter" aria-labelledby="ch1-h">
+        <p class="chapter-num">02</p>
+        <h2 id="ch1-h">AI as the Junior Partner</h2>
+        <p>Ever since AI took off, there's one question I've heard more times than I can count. It comes from fellow UX designers, from web developers, and, honestly, from anyone whose job involves a computer: "Where do I fit into all this?" Or, more bluntly: "Is AI going to replace me?"</p>
+        <p>It's a question I ask myself too, from time to time.</p>
+        <p>Reasonable as the question is, I think the answer is quite simple. The fact that AI is quick on its feet, more than us humans are or will ever be, is not up for debate. However, without training, AI has no context about your users, and even with that training, it still can't read a room, and is sometimes confidently wrong.</p>
+        <p>Accordingly, the real question isn't whether AI will replace designers. It's how designers should work with it. The model I keep coming back to is the junior designer: someone who is fast, eager, tireless, and capable of producing a surprising amount of work, but who doesn't yet know your users, your business, or when something "technically okay" is actually wrong.</p>
+        <p>You wouldn't hand a junior designer a project and ship whatever comes back. You'd brief them clearly, give them context, review their work, and push back when something misses the mark. Working with AI is no different. This approach has a name: <button type="button" class="term" data-term="hitl">Human-in-the-Loop (HITL)</button>, meaning a person stays involved at the decision points rather than letting AI run unchecked from start to finish.</p>
+
+        <h3>Three ground rules for working with your junior partner</h3>
+        <ol class="rules">
+          <li><strong>Brief it like it's a colleague.</strong> AI output is only as good as the AI's training and the context it gets. Vague prompts produce vague results.</li>
+          <li><strong>Verify everything.</strong> AI can <button type="button" class="term" data-term="hallucination">hallucinate</button> and present made-up facts with absolute confidence. Treat its output as a first draft that needs tons of revisions and polishing, instead of a finished product.</li>
+          <li><strong>You own the outcome.</strong> If an AI-generated design excludes users or is biased against certain demographics, that is on you as a designer, not on the tool. You have to always ensure that the information the tool is given is accurate and representative of your users, while also ensuring that you don't paste <button type="button" class="term" data-term="pii">Personally Identifiable Information (PII)</button> into an AI tool your organization hasn't approved.</li>
+        </ol>
+
+        <h3>How to use this guide</h3>
+        <p>The remaining chapters follow the four phases of the Double Diamond framework: Discover, Define, Develop, and Deliver. Each chapter shows which tasks to delegate, which to keep, a sample prompt you can adapt, and the risks to watch for.</p>
+
+        <figure class="figure wide">
+          <!-- Figure 1 is built in HTML (no image file needed) -->
+          <div class="matrix" role="group" aria-label="Task Delegation Matrix">
+            <div class="matrix-y" aria-hidden="true"><span>High stakes →</span><span>← Low stakes</span></div>
+            <div class="matrix-grid">
+              <div class="quad quad-verify">
+                <p class="quad-tag">AI drafts · Human verifies</p>
+                <p class="quad-title">Draft, then double-check</p>
+                <p class="quad-desc">Repetitive work where mistakes are costly. AI produces it; a person checks every output.</p>
+                <ul><li>Affinity clustering</li><li>Handoff documentation</li><li>Generated code</li><li>Alt text</li></ul>
+                <p class="sr-only">Repetitive, high stakes.</p>
+              </div>
+              <div class="quad quad-human">
+                <p class="quad-tag">Human only</p>
+                <p class="quad-title">Keep it human</p>
+                <p class="quad-desc">High-stakes decisions that need empathy, context, and accountability.</p>
+                <ul><li>Choosing the problem</li><li>Moderating usability tests</li><li>Accessibility sign-off</li><li>Prioritizing fixes</li></ul>
+                <p class="sr-only">Judgment-based, high stakes.</p>
+              </div>
+              <div class="quad quad-ai">
+                <p class="quad-tag">Delegate to AI</p>
+                <p class="quad-title">Hand it off</p>
+                <p class="quad-desc">Repetitive, low-stakes work AI can own with a light review.</p>
+                <ul><li>Transcript summaries</li><li>Copy variations</li><li>Survey question drafts</li><li>Competitive scans</li></ul>
+                <p class="sr-only">Repetitive, low stakes.</p>
+              </div>
+              <div class="quad quad-assist">
+                <p class="quad-tag">Human leads · AI assists</p>
+                <p class="quad-title">Explore together</p>
+                <p class="quad-desc">Judgment calls with room to explore. AI widens the options; a person chooses.</p>
+                <ul><li>Concept brainstorming</li><li>Sitemap options</li><li>Layout variations</li></ul>
+                <p class="sr-only">Judgment-based, low stakes.</p>
+              </div>
+            </div>
+            <div class="matrix-x" aria-hidden="true"><span>← Repetitive</span><span>Judgment-based →</span></div>
+          </div>
+          <figcaption><strong>Figure 1.</strong> Task Delegation Matrix. UX tasks sorted by how repetitive they are and how much is at stake if they go wrong.</figcaption>
+        </figure>
+      </section>
+
+      <!-- ============ 03 DISCOVERY & RESEARCH ============ -->
+      <section id="ch2" class="chapter" aria-labelledby="ch2-h">
+        <div class="chapter-band">
+          <p class="chapter-num">03 <span class="phase">Discover</span></p>
+          <h2 id="ch2-h">Discovery &amp; Research</h2>
+          <p>Discovery is the process of going wide to understand users, their needs, pain points, the context in which they live and how all that shapes their experience with a system or product. During this phase, it can be very tempting to use AI because of how speedy its turnaround can be, but it's also arguably the most dangerous phase to use AI in, because everything that follows during the design process hinges on getting this stage right.</p>
+          <p>It's not entirely "wrong" to use AI during this stage, but it's recommended that the designer draws a clear picture of what parts of this process they should own and what parts AI can handle.</p>
+          <div class="table-wrap">
+            <table class="delegation">
+              <caption class="sr-only">Who handles what during discovery</caption>
+              <thead><tr><th scope="col" class="col-ai">AI can handle</th><th scope="col" class="col-human">The designer should own</th></tr></thead>
+              <tbody>
+                <tr><td>Drafting interview guides and survey questions</td><td>Conducting interviews and reading body language, hesitation, and emotion</td></tr>
+                <tr><td>Summarizing interview transcripts</td><td>Deciding which insights actually matter</td></tr>
+                <tr><td>Converting notes from user interviews to themes</td><td>Sorting notes by the underlying meaning the users had</td></tr>
+                <tr><td>Conducting competitive scans and desk research</td><td>Recruiting interview participants</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="prompt">
+          <div class="prompt-head">
+            <h3 class="prompt-label">Sample prompt</h3>
+            <button type="button" class="copy-btn" data-copy="ch2-prompt">Copy prompt</button>
+          </div>
+          <p class="prompt-text" id="ch2-prompt">You are a UX researcher helping me synthesize interview notes. Below you'll see anonymized notes from 6 interviews with frequent concert-goers who are top listeners of a certain artist on Spotify about how they decide whether to attend a concert with people they've met through an app. Group observations into 4-6 themes. For each theme, list the supporting observations and which participant they came from (P1-P6). Refrain from adding any observations that are not in the notes. If something is ambiguous, please flag it instead of attempting to interpret it.</p>
+        </div>
+        <p>The last two sentences are doing all the heavy lifting because contrary to the rest of the prompt which tells AI what tasks to do, the two sentences tell it what <em>not</em> to do, which narrows the space for AI hallucination thus making the output checkable.</p>
+
+        <figure class="figure wide">
+          <!-- Figure 2 is built in HTML (no image file needed) -->
+          <div class="summary-fig">
+            <div class="ai-output">
+              <div class="ai-output-head"><span>AI output · Interview synthesis</span><span class="ai-output-meta">Concert Connect study · 6 interviews</span></div>
+              <div class="ai-output-body">
+                <p class="theme-title">Theme 1: Safety comes first</p>
+                <p>Participants want to meet in a public place before the show (P1, P2, P5).</p>
+                <p class="flag"><span class="ia-badge">1</span> All six participants would share their exact location with matches.</p>
+                <p class="theme-title">Theme 2: Shared taste builds trust</p>
+                <p>P3 trusts matches more if they've followed the artist for years.</p>
+                <p class="flag"><span class="ia-badge">2</span> P4 said, "I'd only go if Spotify verified everyone's ID."</p>
+                <p class="theme-title">Theme 3: Privacy around listening data</p>
+                <p class="flag"><span class="ia-badge">3</span> Jordan Lee (P6, @jlee_sounds) worries matches will judge her other top artists.</p>
+              </div>
+            </div>
+            <div class="callouts">
+              <p class="callouts-title">What went wrong</p>
+              <div class="callout"><span class="ia-badge">1</span><div><p class="callout-title">Overgeneralization</p><p>Only P2 mentioned sharing location, and P1 and P5 said they wouldn't. Trusting this could make location sharing a default. Check participant IDs yourself.</p></div></div>
+              <div class="callout"><span class="ia-badge">2</span><div><p class="callout-title">Fabricated quote</p><p>This line doesn't appear in P4's notes. Search the source material for every quote before using it.</p></div></div>
+              <div class="callout"><span class="ia-badge">3</span><div><p class="callout-title">Exposed PII</p><p>A real name and social handle made it into the input. Replace identifiers with P1–P6 before pasting anything into an AI tool.</p></div></div>
+            </div>
+          </div>
+          <figcaption><strong>Figure 2.</strong> An annotated AI research summary showing three common errors: overgeneralization, a fabricated quote, and exposed personal information. Concert Connect is the author's own concept, not an existing Spotify feature. All participants, names, handles, and quotes are fictional and were created for illustration.</figcaption>
+        </figure>
+      </section>
+
+      <!-- ============ 04 PROBLEM DEFINITION & IA ============ -->
+      <section id="ch3" class="chapter" aria-labelledby="ch3-h">
+        <div class="chapter-band">
+          <p class="chapter-num">04 <span class="phase">Define</span></p>
+          <h2 id="ch3-h">Problem Definition &amp; Information Architecture</h2>
+          <p>The Define phase compiles all your learnings from the user research and interviews into a clear problem statement, giving you a better idea of what it is that you need to work on solving. <button type="button" class="term" data-term="ia">Information Architecture</button> is useful as it gives your proposed solution a structure that users can easily navigate. While AI is helpful during certain parts of both processes like drafting problem statements from your user research, proposing personas, etc, it can't ultimately decide which option makes the most sense or solves the users' pain points in the most effective manner, which is why the designer should own certain parts of the process.</p>
+          <div class="table-wrap">
+            <table class="delegation">
+              <caption class="sr-only">Who handles what during problem definition and IA</caption>
+              <thead><tr><th scope="col" class="col-ai">AI can handle</th><th scope="col" class="col-human">The designer should own</th></tr></thead>
+              <tbody>
+                <tr><td>Drafting "How can we address…" statements from the user research themes</td><td>Choosing what problem to prioritize solving</td></tr>
+                <tr><td>Drafting personas</td><td>Cross-checking personas against existing data and eliminating stereotypes</td></tr>
+                <tr><td>Drafting sitemaps and navigation options</td><td>Making IA decisions based on user mental models</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="prompt">
+          <div class="prompt-head">
+            <h3 class="prompt-label">Sample prompt</h3>
+            <button type="button" class="copy-btn" data-copy="ch3-prompt">Copy prompt</button>
+          </div>
+          <p class="prompt-text" id="ch3-prompt">Based on the research themes below, propose two alternative information architectures for Concert Connect, an opt-in feature within the Spotify app that lets top listeners of an artist find others attending the same local concert. Themes: (1) safety comes first, (2) shared taste builds trust, and (3) users value privacy around listening data. For each option, explain the organizing logic (e.g., by concert, by match, by privacy setting), where the feature lives in the existing app, and one risk it might create for users. Use the same labels participants used in the research where applicable rather than internal jargon.</p>
+        </div>
+
+        <h3>Watch out for</h3>
+        <ul class="watch">
+          <li><strong>Generic personas:</strong> Without your research data, AI defaults to bland, stereotyped personas, such as "Khaya, 26, music lover who enjoys attending concerts and live shows." A persona like this could describe almost anyone on Spotify and is a common form of <button type="button" class="term" data-term="slop">AI slop</button>. A useful Concert Connect persona reflects what participants actually said: for example, a seasoned solo concert goer might be open to having company every now and then, but also have concerns around meeting strangers without knowing where and when first.</li>
+          <li><strong><button type="button" class="term" data-term="context-window">Context window</button> limits:</strong> If you paste in all six interview transcripts plus your themes and existing app structure, the AI may lose track of earlier material and recommend a structure that ignores the safety concerns previously voiced by users early on. A recommended best practice is to break large datasets into easy-to-process chunks and summarize relevant data as you go.</li>
+          <li><strong>Use of internal jargon in labels:</strong> AI often reuses whatever terms you gave it. For instance, if you initially briefed it using a working name like "Listener Matching," your navigation may end up adopting that same label, even if participants may have described the idea as "finding people with a similar music taste to attend concerts with." Accordingly, labels should reflect how users talk, not the project team's internal jargon and references.</li>
+          <li><strong>Privacy hidden in settings:</strong> AI often follows common app patterns, which usually means placing privacy controls under a general Settings menu. This might be a huge risk especially for a feature that shares listening data and concert plans with strangers. Participants in Theme 3 expressed a preference for privacy around what potential concert matches can see, an option which might necessitate an opt-in flow, which can give users the autonomy to control which data their potential matches can see.</li>
+        </ul>
+
+        <figure class="figure wide toggle-figure">
+          <div class="figure-toggle" role="group" aria-label="Choose which version to show">
+            <button type="button" data-show="ai" aria-pressed="true">AI-proposed</button>
+            <button type="button" data-show="human" aria-pressed="false">Human-revised</button>
+          </div>
+          <div class="fig-version" data-version="ai">
+            <!-- Figure 3 is built in HTML (no image file needed) -->
+            <div class="ia-card">
+              <p class="ia-pill ia-pill-ai">AI-proposed</p>
+              <p class="ia-heading">A standalone tab, with privacy buried in Settings</p>
+              <ul class="ia-tree" aria-label="AI-proposed structure">
+                <li><span class="ia-node ia-root">Spotify app</span>
+                  <ul>
+                    <li><span class="ia-node">Home</span></li>
+                    <li><span class="ia-node">Search</span></li>
+                    <li><span class="ia-node">Your Library</span></li>
+                    <li><span class="ia-node">Listener Matching (new tab)</span>
+                      <ul>
+                        <li><span class="ia-node">Find Matches</span></li>
+                        <li><span class="ia-node">Messages</span></li>
+                        <li><span class="ia-node">Settings</span>
+                          <ul>
+                            <li><span class="ia-node">Privacy</span>
+                              <ul>
+                                <li><span class="ia-node ia-buried">Data Sharing</span> <em class="ia-note">Privacy controls 3 levels deep</em></li>
+                              </ul>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="fig-version" data-version="human" hidden>
+            <div class="ia-card">
+              <p class="ia-pill ia-pill-human">Human-revised</p>
+              <p class="ia-heading">Built into the concert listing, with privacy up front</p>
+              <ul class="ia-tree" aria-label="Human-revised structure">
+                <li><span class="ia-node ia-root">Spotify app</span>
+                  <ul>
+                    <li><span class="ia-node">Artist Page</span>
+                      <ul>
+                        <li><span class="ia-node">Upcoming Concerts</span>
+                          <ul>
+                            <li><span class="ia-node ia-changed">Concert Listing</span> <span class="ia-badge" aria-label="change 1">1</span>
+                              <ul>
+                                <li><span class="ia-node ia-changed">Find people to go with</span> <span class="ia-badge" aria-label="change 2">2</span>
+                                  <ul>
+                                    <li><span class="ia-node ia-changed">Opt in: choose what matches can see</span> <span class="ia-badge" aria-label="change 3">3</span></li>
+                                    <li><span class="ia-node ia-changed">Meet-in-public reminder</span> <span class="ia-badge" aria-label="change 4">4</span></li>
+                                    <li><span class="ia-node ia-changed">Matches + shared listening history</span> <span class="ia-badge" aria-label="change 5">5</span>
+                                      <ul><li><span class="ia-node">Group Chat</span></li></ul>
+                                    </li>
+                                  </ul>
+                                </li>
+                              </ul>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+              <p class="ia-changes-title">What changed and why</p>
+              <ol class="ia-changes">
+                <li><strong>Where decisions happen.</strong> Concert Connect lives on each concert listing, where users already decide whether to attend, instead of a separate tab.</li>
+                <li><strong>Users' own words.</strong> "Find people to go with" replaces the internal name "Listener Matching," matching how participants described the idea.</li>
+                <li><strong>Privacy up front.</strong> Users choose what matches can see during opt-in, not three levels deep in Settings. (Theme 3)</li>
+                <li><strong>Safety prompt.</strong> A reminder to meet in a public place appears before any plans are made. (Theme 1)</li>
+                <li><strong>Taste as a trust signal.</strong> Match profiles show shared listening history, since participants trust long-time fans more. (Theme 2)</li>
+              </ol>
+            </div>
+          </div>
+          <figcaption><strong>Figure 3.</strong> An AI-proposed and a human-revised information architecture for Concert Connect, with each change linked to the research themes in Chapter 03. Both structures were created by the author for illustration.</figcaption>
+        </figure>
+      </section>
+
+      <!-- ============ 05 IDEATION, WIREFRAMING & COPYWRITING ============ -->
+      <section id="ch4" class="chapter" aria-labelledby="ch4-h">
+        <div class="chapter-band">
+          <p class="chapter-num">05 <span class="phase">Develop</span></p>
+          <h2 id="ch4-h">Ideation, Wireframing &amp; Copywriting</h2>
+          <p>AI's ability to produce lots of information quickly makes it a strong brainstorming partner, but volume isn't necessarily synonymous with quality. This phase, like all its predecessors, can be streamlined with the help of AI, but human oversight is crucial at this stage as well.</p>
+          <div class="table-wrap">
+            <table class="delegation">
+              <caption class="sr-only">Who handles what during ideation, wireframing, and copywriting</caption>
+              <thead><tr><th scope="col" class="col-ai">AI can handle</th><th scope="col" class="col-human">The designer should own</th></tr></thead>
+              <tbody>
+                <tr><td>Generating concept directions</td><td>Deciding on what direction best aligns with users and business goals</td></tr>
+                <tr><td>Producing wireframe layouts</td><td>Crosschecking layouts against accessibility standards (WCAG)</td></tr>
+                <tr><td>Creating buttons, drafting error messages, empty states</td><td>Ensuring alignment with brand voice and guidelines</td></tr>
+                <tr><td>Drafting alt text</td><td>Checking for errors, dark patterns, and misalignments</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="prompt">
+          <div class="prompt-head">
+            <h3 class="prompt-label">Sample prompt</h3>
+            <button type="button" class="copy-btn" data-copy="ch4-prompt">Copy prompt</button>
+          </div>
+          <p class="prompt-text" id="ch4-prompt">Write 5 versions of the short explanation shown on the Concert Connect opt-in screen, where users choose which data other attendees can see. Tone: friendly, clear, and reassuring, not "salesy". Keep each under 30 words. Say exactly what information will be shared (Spotify username, top artists, and listening history for this specific artist) and what won't be shared (exact location and other playlists). Clarify that users can change this setting or turn it off at any time.</p>
+        </div>
+        <p>AI can write grammatically appealing sentences, but it can't empathize with your users' pain points or understand what worries them unless you share that information with it.</p>
+
+        <h3>Watch out for</h3>
+        <ul class="watch">
+          <li><strong>Uniformity:</strong> AI-generated layouts sometimes fall back on the most common and already-existing patterns. For a feature about meeting strangers, it's easy for AI to default to dating-app conventions like swipeable profile cards, which would inadvertently set the wrong expectations for a feature meant to help concert-goers find company, and it could make some users less comfortable opting in.</li>
+          <li><strong>Accessibility errors:</strong> AI wireframes sometimes use low color contrast, might miss labels or use touch targets that are too small. These issues might likely be amplified in this design: Spotify uses a dark interface, where gray text on black often fails <button type="button" class="term" data-term="wcag">WCAG</button> contrast requirements. Since users will likely use this feature on their phones in dark, crowded concert venues, it's strongly recommended to check every screen against WCAG before moving forward.</li>
+          <li><strong><button type="button" class="term" data-term="deskilling">Deskilling</button>:</strong> Tempting as it is to always use AI in producing the first draft, please try sketching your own version of the opt-in screen before prompting, so you don't lose the ability to make your own sketches and designs from scratch. Afterwards, you can always use AI to expand on your designs instead of replacing them.</li>
+        </ul>
+
+        <figure class="figure wide toggle-figure">
+          <div class="figure-toggle" role="group" aria-label="Choose which version to show">
+            <button type="button" data-show="ai" aria-pressed="true">AI-generated</button>
+            <button type="button" data-show="human" aria-pressed="false">Human-revised</button>
+          </div>
+          <div class="fig-version" data-version="ai">
+            <p class="print-only ia-pill ia-pill-ai">AI-generated</p>
+            <div class="phone-wrap">
+              <div class="phone" role="img" aria-label="AI-generated opt-in screen with pressure copy that says Never go solo again, faint gray body text, four unlabeled sharing toggles all switched on, a large Find my concert crew button, and a tiny Not now link.">
+                <div aria-hidden="true">
+                  <p class="ph-time">9:41</p><div class="ph-chip"><p class="ph-artist">Lumen Bay</p><p class="ph-venue">The Orchid Hall · Sat, 8 PM</p></div>
+                  <p class="ph-head">Never go solo again! <span class="ia-badge">4</span></p>
+                  <p class="ph-copy ph-low">Everyone's going. Don't miss out! Turn on Concert Connect and meet your crew tonight. <span class="ia-badge">1</span></p>
+                  <div class="ph-rows"><div class="ph-row"><svg viewBox="0 0 24 24" class="ico" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></g></svg><span class="switch on"></span></div><div class="ph-row"><svg viewBox="0 0 24 24" class="ico" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></g></svg><span class="switch on"></span></div><div class="ph-row"><svg viewBox="0 0 24 24" class="ico" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></g></svg><span class="switch on"></span></div><div class="ph-row"><svg viewBox="0 0 24 24" class="ico" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></g></svg><span class="switch on"></span></div><span class="ia-badge ph-badge-side">2</span></div>
+                  <div class="ph-spacer"></div>
+                  <p class="ph-btn-big">Find my concert crew <span class="ia-badge">3</span></p>
+                  <p class="ph-notnow">Not now</p>
+                </div>
+              </div>
+              <ol class="ia-changes">
+                <li><strong>Low contrast.</strong> Dark gray text on a black background fails WCAG contrast requirements, which matters even more in a dark, crowded venue.</li>
+                <li><strong>Pre-selected, unlabeled toggles.</strong> Every sharing option is on by default, and icons alone don't say what's shared. Consent should be an active, informed choice.</li>
+                <li><strong>Lopsided buttons.</strong> A large "Find my concert crew" button next to a tiny "Not now" link steers users toward opting in.</li>
+                <li><strong>Pressure-based copy.</strong> "Don't miss out!" pushes people toward sharing their data. Calm copy that explains the trade-off builds more trust.</li>
+              </ol>
+            </div>
+          </div>
+          <div class="fig-version" data-version="human" hidden>
+            <p class="print-only ia-pill ia-pill-human">Human-revised</p>
+            <div class="phone-wrap">
+              <div class="phone" role="img" aria-label="Human-revised opt-in screen titled Find people to go with, explaining exactly what is shared, with labeled toggles switched off by default, a note that location and other playlists are never shared, and equal-sized Not now and Turn on buttons.">
+                <div aria-hidden="true">
+                  <p class="ph-time">9:41</p><div class="ph-chip"><p class="ph-artist">Lumen Bay</p><p class="ph-venue">The Orchid Hall · Sat, 8 PM</p></div>
+                  <p class="ph-head">Find people to go with</p>
+                  <p class="ph-copy">Others going to this show will see your first name, top artists, and how long you've listened to Lumen Bay. You can change this anytime.</p>
+                  <div class="ph-rows"><div class="ph-row"><span>First name</span><span class="switch"></span></div><div class="ph-row"><span>Top artists</span><span class="switch"></span></div><div class="ph-row"><span>Listening history for Lumen Bay</span><span class="switch"></span></div></div>
+                  <p class="ph-private"><svg viewBox="0 0 24 24" class="ico" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></g></svg> Never shared: your exact location and other playlists.</p>
+                  <div class="ph-spacer"></div>
+                  <div class="ph-btns"><span class="ph-btn ph-btn-outline">Not now</span><span class="ph-btn ph-btn-fill">Turn on</span></div>
+                </div>
+              </div>
+              <p class="phone-note">Labeled toggles are off by default, the copy explains exactly what's shared, and both choices carry equal weight.</p>
+            </div>
+          </div>
+          <figcaption><strong>Figure 4.</strong> An AI-generated and a human-revised version of the Concert Connect opt-in screen. Concert Connect, the artist "Lumen Bay," and the venue are fictional and were created by the author for illustration.</figcaption>
+        </figure>
+      </section>
+
+      <!-- ============ 06 PROTOTYPING, USABILITY TESTING & HANDOFF ============ -->
+      <section id="ch5" class="chapter" aria-labelledby="ch5-h">
+        <div class="chapter-band">
+          <p class="chapter-num">06 <span class="phase">Deliver</span></p>
+          <h2 id="ch5-h">Prototyping, Usability Testing &amp; Handoff</h2>
+          <p>This phase tests solutions with real users and hands off the final design to developers. At this stage, <button type="button" class="term" data-term="agentic">Agentic AI</button> (and other AI tools) can take multi-step actions on their own as needed, and turn the design file into a working prototype or ready-to-ship code.</p>
+          <div class="table-wrap">
+            <table class="delegation">
+              <caption class="sr-only">Who handles what during prototyping, testing, and handoff</caption>
+              <thead><tr><th scope="col" class="col-ai">AI can handle</th><th scope="col" class="col-human">The designer should own</th></tr></thead>
+              <tbody>
+                <tr><td>Creating working prototypes from existing designs/concepts</td><td>Determining what the prototype needs to test</td></tr>
+                <tr><td>Drafting usability study scripts and proposing tasks</td><td>Overseeing sessions and taking note of what users do and say</td></tr>
+                <tr><td>Summarizing test findings and identifying issues</td><td>Prioritizing issues in terms of urgency: what "MUST" be fixed vs. what "would be nice" to fix (must-haves vs. nice-to-haves)</td></tr>
+                <tr><td>Generating handoff code and documentation</td><td>Testing with assistive technology to ensure accessibility</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="prompt">
+          <div class="prompt-head">
+            <h3 class="prompt-label">Sample prompt</h3>
+            <button type="button" class="copy-btn" data-copy="ch5-prompt">Copy prompt</button>
+          </div>
+          <p class="prompt-text" id="ch5-prompt">Here are notes from the 5 usability sessions we've conducted testing the Concert Connect Prototype. Participants were asked to find Concert Connect from a concert listing, opt in while choosing what to share, review a potential match, and send a message in the group chat. List every usability issue observed, how many participants experienced it, and its severity (critical, major, minor) based on whether it prevented task completion. Separate what participants did from what they said. List any issue related to privacy or safety separately, even if it seems minor.</p>
+        </div>
+
+        <h3>Watch out for</h3>
+        <ul class="watch">
+          <li><strong>Polished vs. validated:</strong> An AI-built prototype may appear finished if it features realistic profiles and concert listings. This may give stakeholders a false impression that the flow works before anyone even tests whether users understand what "Listening history for Lumen Bay" means or feel comfortable meeting a concert match.</li>
+          <li><strong>What users say vs. what they do:</strong> It's crucial to remember that participants can, at times, say one thing but do another. A user might say they're comfortable sharing their top artists, then take 50 seconds deciding whether to turn the toggle on. AI overviews can sometimes report the user's verbal comment but overlook their contrasting behavior, which is why the prompt asks for these two to be examined separately.</li>
+          <li><strong>AI-generated code:</strong> AI-generated code often fails accessibility checks. For the opt-in screen, a potential issue is toggles built from plain visual elements might prompt a screen reader to interpret it as a "button" instead of "First name, off." Developers and designers should review generated code and ensure that it's tested with a screen reader.</li>
+          <li><strong>Agents acting without review:</strong> It's important to keep in mind that the AI is a 'junior partner' so while it can push copy changes, edit the design file, or share prototype links, there have to be clearly-established checkpoints where a person approves before anything goes live.</li>
+        </ul>
+      </section>
+
+      <!-- ============ 07 TROUBLESHOOTING ============ -->
+      <section id="troubleshooting" aria-labelledby="troubleshooting-h">
+        <p class="chapter-num">07</p>
+        <h2 id="troubleshooting-h">Troubleshooting: When AI Output Goes Wrong</h2>
+        <div class="table-wrap">
+          <table class="delegation three-col">
+            <caption class="sr-only">Common problems with AI output, their likely causes, and fixes</caption>
+            <thead><tr><th scope="col" class="col-ai">Problem</th><th scope="col" class="col-mid">Probable cause</th><th scope="col" class="col-human">Proposed fix</th></tr></thead>
+            <tbody>
+              <tr><td>Output is too generic</td><td>Prompt lacks enough context</td><td>Provide additional details on users, their goals, pain points, and examples of what exactly "good" looks like</td></tr>
+              <tr><td>Output doesn't sound like your brand</td><td>No guidance provided around brand voice</td><td>Paste brand voice guidelines or upload existing brand voice copy into your AI prompt</td></tr>
+              <tr><td>Design fails accessibility evaluation</td><td>AI optimized for appearance but overlooked accessibility guidelines</td><td>Specify WCAG requirements or upload sample copy into AI tool</td></tr>
+              <tr><td>Personas are biased / stereotypical</td><td>Bias in AI training data</td><td>Base your prompts in your own research data and include diverse subjects in your user research</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ============ 08 CONCLUSION ============ -->
+      <section id="conclusion" aria-labelledby="conclusion-h">
+        <p class="chapter-num">08</p>
+        <h2 id="conclusion-h">Conclusion</h2>
+        <p>At the start of this project, I posed the question on whether UX Designers will still be relevant in two or three years, given how fast AI is advancing. Having worked through each stage of the UX Design process, my answer is a resounding "YES", but it's worth noting that the designer's place is rapidly shifting. AI can draft, summarize, wireframe, and even build, but what it can't do is care about the person on the other side of the screen, notice cues in their body language that might indicate something feels off, or take responsibility when a design simply falls short of users' needs and expectations.</p>
+        <p>This is the designer's job, and it's arguably the most important part of the whole process, because what good does a fancy design do if no one asked for it to begin with or has any idea how to navigate it? As AI helps out with the execution part, the value of the designer is heavily centered around judgment and asking the right questions to ensure that the right problem is being solved and that the user remains at the center.</p>
+      </section>
+
+      <!-- ============ 09 GLOSSARY ============
+           Pop-up definitions in the chapters are read from this list:
+           each data-term here must match a data-term on a .term button. -->
+      <section id="glossary" aria-labelledby="glossary-h">
+        <p class="chapter-num">09</p>
+        <h2 id="glossary-h">Glossary</h2>
+        <dl class="glossary">
+          <dt data-term="affinity">Affinity Diagramming</dt><dd data-term="affinity">A method for organizing research observations into groups based on shared themes.</dd>
+          <dt data-term="agentic">Agentic AI</dt><dd data-term="agentic">AI systems that can plan and carry out multi-step tasks with some independence, such as navigating software or editing files.</dd>
+          <dt data-term="hallucination">AI Hallucination</dt><dd data-term="hallucination">When an AI produces false or invented information and presents it as fact.</dd>
+          <dt data-term="slop">AI Slop</dt><dd data-term="slop">Low-quality, generic AI-generated content produced in volume without meaningful human review.</dd>
+          <dt data-term="context-window">Context Window</dt><dd data-term="context-window">The amount of text an AI model can consider at one time; information beyond it may be lost or ignored.</dd>
+          <dt data-term="deskilling">Deskilling</dt><dd data-term="deskilling">The loss of skills that happens when people rely on automation for tasks they used to do themselves.</dd>
+          <dt data-term="double-diamond">Double Diamond Framework</dt><dd data-term="double-diamond">A design process model with four phases (Discover, Define, Develop, Deliver), alternating between broad exploration and narrow focus.</dd>
+          <dt data-term="genai">Generative AI (GenAI)</dt><dd data-term="genai">AI that creates new content, such as text, images, or code, based on patterns in its training data.</dd>
+          <dt data-term="hitl">HITL (Human-in-the-Loop)</dt><dd data-term="hitl">An approach where people stay involved in reviewing and approving AI decisions.</dd>
+          <dt data-term="ia">Information Architecture (IA)</dt><dd data-term="ia">The structure and organization of content so users can find what they need.</dd>
+          <dt data-term="microcopy">Microcopy</dt><dd data-term="microcopy">Short interface text, such as button labels, error messages, and form hints.</dd>
+          <dt data-term="pii">PII (Personally Identifiable Information)</dt><dd data-term="pii">Any data that could identify a specific person, such as names, emails, or addresses.</dd>
+          <dt data-term="prompt-engineering">Prompt Engineering</dt><dd data-term="prompt-engineering">The practice of drafting and polishing instructions to get useful output from AI.</dd>
+          <dt data-term="wcag">WCAG (Web Content Accessibility Guidelines)</dt><dd data-term="wcag">International standards for making web content accessible to people with disabilities.</dd>
+        </dl>
+      </section>
+
+      <!-- ============ 10 REFERENCES ============ -->
+      <section id="references" aria-labelledby="references-h">
+        <p class="chapter-num">10</p>
+        <h2 id="references-h">References</h2>
+        <ul class="references">
+          <li>Amershi, S., Weld, D., Vorvoreanu, M., Fourney, A., Nushi, B., Collisson, P., Suh, J., Iqbal, S., Bennett, P. N., Inkpen, K., Teevan, J., Kikin-Gil, R., &amp; Horvitz, E. (2019). Guidelines for human-AI interaction. In <em>Proceedings of the 2019 CHI Conference on Human Factors in Computing Systems</em> (pp. 1–13). ACM. <a href="https://doi.org/10.1145/3290605.3300233">https://doi.org/10.1145/3290605.3300233</a></li>
+          <li>Anthropic. (2026). <em>Claude</em> (Opus 5.5 version) [Large language model]. <a href="https://claude.ai">https://claude.ai</a></li>
+          <li>Bainbridge, L. (1983). Ironies of automation. <em>Automatica, 19</em>(6), 775–779. <a href="https://doi.org/10.1016/0005-1098(83)90046-8">https://doi.org/10.1016/0005-1098(83)90046-8</a></li>
+          <li>Brignull, H. (2023). <em>Deceptive patterns: Exposing the tricks tech companies use to control you.</em> Testimonium.</li>
+          <li>Design Council. (2007). <em>Eleven lessons: Managing design in eleven global companies. A study of the design process.</em> Design Council, UK.</li>
+          <li>Design Council. (2019). <em>Framework for innovation: Design Council's evolved Double Diamond.</em> <a href="https://www.designcouncil.org.uk/our-resources/framework-for-innovation/">https://www.designcouncil.org.uk/our-resources/framework-for-innovation/</a></li>
+          <li>Google PAIR. (2019). <em>People + AI guidebook.</em> Google. <a href="https://pair.withgoogle.com/guidebook/">https://pair.withgoogle.com/guidebook/</a></li>
+          <li>Ji, Z., Lee, N., Frieske, R., Yu, T., Su, D., Xu, Y., Ishii, E., Bang, Y. J., Madotto, A., &amp; Fung, P. (2023). Survey of hallucination in natural language generation. <em>ACM Computing Surveys, 55</em>(12), 1–38. <a href="https://doi.org/10.1145/3571730">https://doi.org/10.1145/3571730</a></li>
+          <li>Shneiderman, B. (2022). <em>Human-centered AI.</em> Oxford University Press.</li>
+          <li>World Wide Web Consortium. (2018). <em>Web Content Accessibility Guidelines (WCAG) 2.1.</em> W3C Recommendation. <a href="https://www.w3.org/TR/WCAG21/">https://www.w3.org/TR/WCAG21/</a></li>
+          <li>World Wide Web Consortium. (2023). <em>Web Content Accessibility Guidelines (WCAG) 2.2.</em> W3C Recommendation. <a href="https://www.w3.org/TR/WCAG22/">https://www.w3.org/TR/WCAG22/</a></li>
+        </ul>
+      
+        <h3>Note on AI Use</h3>
+        <p class="ai-note">In keeping with this guide's human-in-the-loop approach, I used Claude (Anthropic, 2026) as a junior partner throughout this project. It helped draft and revise sections of the text, build the figures in Figma, revise the code for the webpage, and suggest references. I directed the work, made the final decisions on content and design, and reviewed every output for accuracy before including it.</p>
+      </section>
+
+      <!-- ============ 11 APPENDIX ============ -->
+      <section id="appendix" aria-labelledby="appendix-h">
+        <p class="chapter-num">11</p>
+        <h2 id="appendix-h">Appendix</h2>
+
+        <h3 class="appendix-title">Appendix A: Research &amp; Discovery Artifacts</h3>
+        <h4>A.1 Sample Interview Questions</h4>
+        <p><strong>Objective:</strong> Understand solo concert-goers' previous concert experiences and whether they would be open to attending concert experiences and whether they would be open to attending concerts with people met through an app, and what privacy concerns, if any, they might have.</p>
+        <p><strong>Key Questions:</strong></p>
+        <ul class="watch">
+          <li><strong>Warm-up:</strong> Tell me about the most recent concert you attended. Did you go alone or with friends?</li>
+          <li><strong>Discovery:</strong> Have you ever tried to find people to attend a concert/event with, using an online platform or app? What was that experience like?</li>
+          <li><strong>Safety:</strong> When considering attending a concert with someone you met online/through an app, what would your primary concern be?</li>
+        </ul>
+
+        <h4>A.2 Anonymized Interview Notes</h4>
+        <p><strong>Sample Data Extract (Participants P1–P6):</strong></p>
+        <div class="notes-grid">
+          <div class="note-card">
+            <p class="note-theme">Theme 1: Safety Comes First</p>
+            <p><strong>Observation:</strong> Participants expressed a strong preference for meeting in public places before heading into a venue.</p>
+            <p><strong>Source IDs:</strong> P2, P5, P6.</p>
+            <p><strong>Note on Hallucination Prevention:</strong> P1 did not mention location sharing; verified against raw transcripts to avoid overgeneralization.</p>
+          </div>
+          <div class="note-card">
+            <p class="note-theme">Theme 2: Shared Taste Builds Trust</p>
+            <p><strong>Observation:</strong> Long-time fandom and shared listening history serve as primary trust signals.</p>
+            <p><strong>Source IDs:</strong> P3, P4.</p>
+          </div>
+          <div class="note-card">
+            <p class="note-theme">Theme 3: Privacy Around Listening Data</p>
+            <p><strong>Observation:</strong> Users worry about potential matches judging their broader music tastes or top-artist lists.</p>
+            <p><strong>Source IDs:</strong> P6 (Jordan Lee, @jlee_sounds - PII removed for final report storage).</p>
+          </div>
+        </div>
+
+        <h3 class="appendix-title">Appendix B: Prompt Engineering Repository</h3>
+        <div class="prompt quote">
+          <div class="prompt-head">
+            <h4 class="prompt-label">B.1 Discovery Phase Prompt (Interview Synthesis)</h4>
+            <button type="button" class="copy-btn" data-copy="b1">Copy</button>
+          </div>
+          <p class="prompt-text" id="b1">You are a UX researcher helping me synthesize interview notes. Below are anonymized notes from 6 interviews with frequent concert-goers who are also among the top listeners of a certain artist on Spotify about how they decide whether to attend a concert with people they've met through an app. Group the observations into 4–6 themes. For each theme, list the supporting observations and which participant they came from (P1–P6). Do not add any observations that are not in the notes. If something is ambiguous, flag it rather than interpreting it.</p>
+        </div>
+        <div class="prompt quote">
+          <div class="prompt-head">
+            <h4 class="prompt-label">B.2 Definition &amp; IA Prompt (Information Architecture Alternatives)</h4>
+            <button type="button" class="copy-btn" data-copy="b2">Copy</button>
+          </div>
+          <p class="prompt-text" id="b2">Based on the research themes below, propose two alternative information architectures for Concert Connect, an opt-in feature within the Spotify app that lets top listeners of an artist find others attending the same local concert. Themes: (1) safety comes first, (2) shared taste builds trust, and (3) privacy around listening data. For each option, explain the organizing logic (e.g., by concert, by match, by privacy setting), where the feature lives in the existing app, and one risk it might create for users. Use the labels participants used in the research where possible rather than internal jargon.</p>
+        </div>
+        <div class="prompt quote">
+          <div class="prompt-head">
+            <h4 class="prompt-label">B.3 Ideation &amp; Copywriting Prompt (Microcopy Variations)</h4>
+            <button type="button" class="copy-btn" data-copy="b3">Copy</button>
+          </div>
+          <p class="prompt-text" id="b3">Write 5 versions of the short explanation shown on the Concert Connect opt-in screen, where users choose what other attendees can see. Tone: friendly, clear, and reassuring, not salesy. Keep each under 30 words. Say exactly what will be shared (first name, top artists, and listening history for this artist) and what won't (exact location and other playlists). Make clear that users can change this or turn it off at any time. Avoid internal terms like 'data sharing' or 'Listener Matching'.</p>
+        </div>
+
+        <div class="prompt quote">
+          <div class="prompt-head">
+            <h4 class="prompt-label">B.4 Delivery Phase Prompt (Usability Test Synthesis)</h4>
+            <button type="button" class="copy-btn" data-copy="b4">Copy</button>
+          </div>
+          <p class="prompt-text" id="b4">Here are notes from 5 usability sessions testing the Concert Connect prototype. Participants were asked to find Concert Connect from a concert listing, opt in while choosing what to share, review a potential match, and send a message in the group chat. List every usability issue observed, how many participants experienced it, and its severity (critical, major, minor) based on whether it prevented task completion. Separate what participants did from what they said. List any issue related to privacy or safety separately, even if it seems minor.</p>
+        </div>
+        <p class="appendix-note"><strong>Using these prompts:</strong> Swap the Concert Connect details (users, topic, research themes) for your own project, remove names and other personal information from anything you paste in, and check every output against your source material before sharing it.</p>
+
+        <h3 class="appendix-title">Appendix C: Design Iterations &amp; Wireframes</h3>
+        <p>This appendix records how the AI-generated drafts in Figures 3 and 4 were revised, and why. Each change is traced back to a research theme from Appendix A.2 or to an accessibility or ethics guideline, so the reasoning behind the final design stays visible.</p>
+
+        <h4>C.1 Information Architecture Transformation Log</h4>
+        <div class="table-wrap">
+          <table class="delegation three-col log">
+            <caption class="sr-only">Changes from the AI-proposed to the human-revised information architecture</caption>
+            <thead><tr><th scope="col" class="col-ai">AI-proposed (v1)</th><th scope="col" class="col-mid">Human-revised (v2)</th><th scope="col" class="col-human">Why it changed</th></tr></thead>
+            <tbody>
+              <tr><td>Concert Connect is a separate "Listener Matching" tab in the main navigation</td><td>"Find people to go with" lives on each concert listing</td><td>Users decide whether to attend from the concert listing, so the feature appears at that moment instead of in a tab they would have to discover</td></tr>
+              <tr><td>Feature labeled with the internal working name "Listener Matching"</td><td>Labeled "Find people to go with"</td><td>Labels should use participants' own language, not project jargon (Chapter 04, "Watch out for")</td></tr>
+              <tr><td>Sharing controls sit three levels deep: Settings → Privacy → Data Sharing</td><td>Users choose what matches can see during the opt-in step</td><td>Theme 3: participants want control over what potential matches can see, at the moment they decide to share</td></tr>
+              <tr><td>No safety guidance before meeting</td><td>Meet-in-public reminder appears before any plans are made</td><td>Theme 1: participants prefer meeting in a public place before heading into a venue</td></tr>
+              <tr><td>Match list shows profiles only</td><td>Matches show shared listening history for the artist</td><td>Theme 2: long-time fandom and shared listening history act as trust signals</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>Planned validation:</strong> Before moving to high-fidelity designs, run a tree test on both structures with representative users, asking them to find the feature and change what matches can see. Compare success rates and time on task to confirm that the revised structure performs better, rather than assuming it does.</p>
+
+        <h4>C.2 Opt-In Screen Revision Log</h4>
+        <div class="table-wrap">
+          <table class="delegation three-col log">
+            <caption class="sr-only">Changes from the AI-generated to the human-revised opt-in screen</caption>
+            <thead><tr><th scope="col" class="col-ai">Issue in the AI draft</th><th scope="col" class="col-mid">Revision</th><th scope="col" class="col-human">Guideline or principle</th></tr></thead>
+            <tbody>
+              <tr><td>Dark gray body text on a black background</td><td>Light text that meets contrast requirements on the dark interface</td><td>WCAG 2.2, Success Criterion 1.4.3 Contrast (Minimum): at least 4.5:1 for body text</td></tr>
+              <tr><td>Sharing toggles shown as icons only, with no text labels</td><td>Each toggle has a visible text label that screen readers also announce</td><td>WCAG 2.2, Success Criteria 1.3.1 Info and Relationships and 4.1.2 Name, Role, Value</td></tr>
+              <tr><td>Every sharing option switched on by default</td><td>All sharing options start switched off</td><td>Privacy by default: consent should be an active, informed choice (Brignull, 2023)</td></tr>
+              <tr><td>Large "Find my concert crew" button next to a tiny "Not now" link</td><td>"Not now" and "Turn on" are equal-sized buttons</td><td>Avoids visual interference, a deceptive pattern that steers users toward one option; also supports WCAG 2.2, Success Criterion 2.5.8 Target Size (Minimum)</td></tr>
+              <tr><td>Pressure copy: "Never go solo again!" and "Don't miss out!"</td><td>Calm copy that states exactly what is shared and that it can be changed anytime</td><td>Avoids urgency-based persuasion; supports making clear what the system can do and why (Amershi et al., 2019)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>C.3 Human-AI Handoff Checklist</h4>
+        <p>Use this checklist before handing designs to developers. Your progress is saved in this browser, so you can come back to it.</p>
+        <div class="checklist-grid">
+          <fieldset class="checklist">
+            <legend>AI-generated, human-verified</legend>
+            <label><input type="checkbox" data-save="c1"> Component specs for switches and buttons reviewed for every state</label>
+            <label><input type="checkbox" data-save="c2"> Spacing and layout specs match the final design file</label>
+            <label><input type="checkbox" data-save="c3"> Generated front-end code checked for semantic HTML and keyboard access</label>
+            <label><input type="checkbox" data-save="c4"> Microcopy strings proofread against brand voice</label>
+            <label><input type="checkbox" data-save="c5"> Usability test summary checked against raw session notes</label>
+          </fieldset>
+          <fieldset class="checklist">
+            <legend>Human only</legend>
+            <label><input type="checkbox" data-save="c6"> Sharing toggles confirmed off by default in the actual build</label>
+            <label><input type="checkbox" data-save="c7"> Tested with a screen reader and checked contrast on the dark theme</label>
+            <label><input type="checkbox" data-save="c8"> Privacy review of exactly what data is shared with matches</label>
+            <label><input type="checkbox" data-save="c9"> Final sign-off on safety messaging, including the meet-in-public reminder</label>
+            <label><input type="checkbox" data-save="c10"> Decided which test issues must be fixed before launch</label>
+          </fieldset>
+        </div>
+        <div class="checklist-actions">
+          <button type="button" class="action-btn" id="print-checklist">Print or save as PDF</button>
+          <button type="button" class="action-btn action-btn-ghost" id="reset-checklist">Clear checklist</button>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <p>© 2026 Divine Mbabazi. <a href="#top">Back to top</a></p>
+  </footer>
+
+  <!-- Shared pop-up for glossary terms (filled in by script.js) -->
+  <div class="term-pop" id="term-pop" role="dialog" aria-modal="false" aria-labelledby="term-pop-title" hidden>
+    <p class="term-pop-title" id="term-pop-title"></p>
+    <p class="term-pop-def"></p>
+    <a class="term-pop-link" href="#glossary">See full glossary</a>
+  </div>
+
+  <!-- Announces "Copied" to screen readers -->
+  <p class="sr-only" aria-live="polite" id="status"></p>
+
+  <script src="script.js"></script>
+</body>
+</html>
