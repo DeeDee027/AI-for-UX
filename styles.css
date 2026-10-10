@@ -61,28 +61,33 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .skip-link:focus { top: 1rem; }
 
-/* ---------- Cover ---------- */
+/* ---------- Cover (maroon, centered, like the Figma page) ---------- */
 .cover {
-  padding: clamp(3rem, 10vw, 7rem) 1.5rem clamp(3rem, 8vw, 5rem);
-  border-bottom: 1px solid var(--rose-line);
+  background: var(--maroon);
+  color: var(--white);
+  text-align: center;
+  padding: clamp(3.5rem, 10vw, 7rem) 1.5rem clamp(3rem, 8vw, 5rem);
 }
-.cover-inner { max-width: 73rem; margin: 0 auto; }
-.mark { width: clamp(4.5rem, 10vw, 6.5rem); height: auto; margin-bottom: 1.5rem; }
-.mark-quill { fill: var(--maroon); }
-.mark-spine { stroke: var(--sand); stroke-width: 2; fill: none; stroke-linecap: round; }
+.cover-inner { max-width: 62rem; margin: 0 auto; }
+.mark { width: clamp(4rem, 9vw, 5.5rem); height: auto; margin: 0 auto 1.5rem; display: block; }
+.mark-quill { fill: var(--white); }
+.mark-spine { stroke: var(--maroon); stroke-width: 2; fill: none; stroke-linecap: round; }
 .mark-star { fill: var(--rose); }
-.mark-star.s3 { fill: var(--violet); }
+.mark-star.s3 { fill: var(--rose-tint); }
 .cover h1 {
   font-family: var(--serif);
   font-weight: 800;
   font-size: clamp(2.4rem, 6.5vw, 4.75rem);
   line-height: 1.05;
   letter-spacing: -0.01em;
-  max-width: 18ch;
-  margin: 0 0 1.25rem;
+  color: var(--white);
+  max-width: 20ch;
+  margin: 0 auto 1.25rem;
 }
-.cover-sub { font-size: clamp(1.15rem, 2.2vw, 1.4rem); color: var(--violet); max-width: 36rem; }
-.byline { margin-top: 2rem; font-weight: 500; color: var(--violet); }
+.cover-sub { font-size: clamp(1.15rem, 2.2vw, 1.4rem); color: var(--rose-tint); max-width: 36rem; margin: 0 auto; }
+.byline { margin: 2rem 0 0.25rem; font-weight: 700; color: var(--white); }
+.updated { margin: 0; font-weight: 300; color: var(--rose-tint); font-size: 1rem; }
+.cover :focus-visible { outline-color: var(--white); }
 
 /* ---------- Layout: sticky contents + reading column ---------- */
 .layout {
@@ -276,7 +281,12 @@ main > section > :not(.wide) { max-width: var(--measure); }
   .fig-version[hidden] { display: block !important; margin-top: 1rem; }  /* print both versions */
   .figure { break-inside: avoid; }
   .term { text-decoration: none; }
-  .cover { break-after: page; border: 0; }
+  .cover { break-after: page; border: 0; background: none; color: var(--ink); }
+  .cover h1 { color: var(--maroon); }
+  .cover-sub, .updated { color: var(--violet); }
+  .byline { color: var(--ink); }
+  .mark-quill { fill: var(--maroon); }
+  .mark-spine { stroke: var(--white); }
   .chapter-band { background: none; box-shadow: none; clip-path: none; color: var(--ink); padding: 0; }
   .chapter-band h2 { color: var(--maroon); }
 }
