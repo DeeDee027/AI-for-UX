@@ -86,12 +86,8 @@
           <li><strong>Verify everything.</strong> AI can <button type="button" class="term" data-term="hallucination">hallucinate</button>, presenting invented facts, quotes, or statistics with total confidence. Treat its output as a first draft, never a finished product.</li>
           <li><strong>You own the outcome.</strong> If an AI-generated design excludes users or misrepresents research, that's on the team, not the tool. This also means never pasting <button type="button" class="term" data-term="pii">Personally Identifiable Information (PII)</button> into an AI tool your organization hasn't approved.</li>
         </ol>
-
-        <!-- Figure 1: export from Figma as SVG, save to images/fig1-matrix.svg,
-             then replace the placeholder div with:
-             <img src="images/fig1-matrix.svg" alt="..."> -->
         <figure class="figure wide">
-          <div class="placeholder">Figure 1 goes here: export “Figure 1 – Task Delegation Matrix” as SVG</div>
+          <img src="images/fig1-matrix.svg" alt="A two-by-two matrix. Repetitive, low-stakes tasks such as transcript summaries can be delegated to AI. Repetitive, high-stakes tasks such as generated code need AI drafts that a human verifies. Judgment-based, low-stakes tasks such as brainstorming are led by humans with AI assisting. Judgment-based, high-stakes tasks such as accessibility sign-off stay human only.">
           <figcaption><strong>Figure 1.</strong> Task Delegation Matrix. UX tasks sorted by how repetitive they are and how much is at stake if they go wrong.</figcaption>
         </figure>
 
@@ -100,25 +96,27 @@
 
       <!-- ============ CHAPTER 2 (fully built example: copy this pattern for 3–5) ============ -->
       <section id="ch2" class="chapter" aria-labelledby="ch2-h">
-        <p class="chapter-num">03 <span class="phase">Discover</span></p>
-        <h2 id="ch2-h">Discovery &amp; Research</h2>
-        <p>Discovery is the process of going wide to understand users, their needs, pain points, the context in which they live and how all that shapes their experience with a system or product. During this phase, it can be very tempting to use AI because of how speedy its turnaround can be, but it's also arguably the most dangerous phase to use AI in, because everything that follows during the design process hinges on getting this stage right.</p>
-        <p>It's not entirely "wrong" to use AI during this stage, but it's recommended that the designer draws a clear picture of what parts of this process they should own and what parts AI can handle.</p>
+        <div class="chapter-band">
+          <p class="chapter-num">03 <span class="phase">Discover</span></p>
+          <h2 id="ch2-h">Discovery &amp; Research</h2>
+          <p>Discovery is the process of going wide to understand users, their needs, pain points, the context in which they live and how all that shapes their experience with a system or product. During this phase, it can be very tempting to use AI because of how speedy its turnaround can be, but it's also arguably the most dangerous phase to use AI in, because everything that follows during the design process hinges on getting this stage right.</p>
+          <p>It's not entirely "wrong" to use AI during this stage, but it's recommended that the designer draws a clear picture of what parts of this process they should own and what parts AI can handle.</p>
 
-        <!-- Delegation table: reuse in every chapter -->
-        <div class="table-wrap">
-          <table class="delegation">
-            <caption>Who handles what during discovery</caption>
-            <thead>
-              <tr><th scope="col" class="col-ai">AI can handle</th><th scope="col" class="col-human">The designer should own</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>Drafting interview guides and survey questions</td><td>Conducting interviews and reading body language, hesitation, and emotion</td></tr>
-              <tr><td>Summarizing interview transcripts</td><td>Deciding which insights actually matter</td></tr>
-              <tr><td>Converting notes from user interviews to themes</td><td>Sorting notes by the underlying meaning the users had</td></tr>
-              <tr><td>Conducting competitive scans and desk research</td><td>Recruiting interview participants</td></tr>
-            </tbody>
-          </table>
+          <!-- Delegation table: reuse in every chapter -->
+          <div class="table-wrap">
+            <table class="delegation">
+              <caption>Who handles what during discovery</caption>
+              <thead>
+                <tr><th scope="col" class="col-ai">AI can handle</th><th scope="col" class="col-human">The designer should own</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Drafting interview guides and survey questions</td><td>Conducting interviews and reading body language, hesitation, and emotion</td></tr>
+                <tr><td>Summarizing interview transcripts</td><td>Deciding which insights actually matter</td></tr>
+                <tr><td>Converting notes from user interviews to themes</td><td>Sorting notes by the underlying meaning the users had</td></tr>
+                <tr><td>Conducting competitive scans and desk research</td><td>Recruiting interview participants</td></tr>
+              </tbody>
+            </table>
+          </div>
         </div>
 
         <!-- Prompt block with a copy button: reuse in every chapter -->
@@ -140,29 +138,28 @@
         </ul>
 
         <figure class="figure wide">
-          <div class="placeholder">Figure 2 goes here: export “Figure 2 – Annotated AI Research Summary” as SVG</div>
+          <img src="images/fig2-summary.svg" alt="A mock AI summary of six Concert Connect interviews with three flagged errors: it claims all six participants would share their location when only one did, it invents a quote from participant P4, and it repeats a participant's real name and social handle.">
           <figcaption><strong>Figure 2.</strong> An annotated AI research summary showing three common errors: overgeneralization, a fabricated quote, and exposed personal information. Concert Connect is the author's own concept, not an existing Spotify feature. All participants, names, handles, and quotes are fictional and were created for illustration.</figcaption>
         </figure>
       </section>
 
       <!-- ============ CHAPTER 3 (toggle-figure example) ============ -->
       <section id="ch3" class="chapter" aria-labelledby="ch3-h">
-        <p class="chapter-num">04 <span class="phase">Define</span></p>
-        <h2 id="ch3-h">Problem Definition &amp; Information Architecture</h2>
-        <p>TODO: intro, delegation table, sample prompt, and Watch out for, following the Chapter 2 pattern.</p>
-
-        <!-- Toggle figure: export the AI column and the human column of Figure 3
-             as two separate SVGs, then swap each placeholder for an <img>. -->
+        <div class="chapter-band">
+          <p class="chapter-num">04 <span class="phase">Define</span></p>
+          <h2 id="ch3-h">Problem Definition &amp; Information Architecture</h2>
+          <p>TODO: intro, delegation table, sample prompt, and Watch out for, following the Chapter 2 pattern.</p>
+        </div>
         <figure class="figure wide toggle-figure">
           <div class="figure-toggle" role="group" aria-label="Choose which version to show">
             <button type="button" data-show="ai" aria-pressed="true">AI-proposed</button>
             <button type="button" data-show="human" aria-pressed="false">Human-revised</button>
           </div>
           <div class="fig-version" data-version="ai">
-            <div class="placeholder">AI-proposed structure (images/fig3-ai.svg)</div>
+            <img src="images/fig3-ai.svg" alt="AI-proposed structure: Concert Connect is a separate tab called Listener Matching, and privacy controls sit three levels deep under Settings, Privacy, Data Sharing.">
           </div>
           <div class="fig-version" data-version="human" hidden>
-            <div class="placeholder">Human-revised structure (images/fig3-human.svg)</div>
+            <img src="images/fig3-human.svg" alt="Human-revised structure: Concert Connect lives on each concert listing as Find people to go with, followed by an opt-in step to choose what matches can see, a meet-in-public reminder, matches with shared listening history, and a group chat.">
           </div>
           <figcaption><strong>Figure 3.</strong> An AI-proposed and a human-revised information architecture for Concert Connect, with each change linked to the research themes in Chapter 2. Both structures were created by the author for illustration.</figcaption>
         </figure>
@@ -170,16 +167,34 @@
 
       <!-- ============ CHAPTER 4 ============ -->
       <section id="ch4" class="chapter" aria-labelledby="ch4-h">
-        <p class="chapter-num">05 <span class="phase">Develop</span></p>
-        <h2 id="ch4-h">Ideation, Wireframing &amp; Copywriting</h2>
-        <p>TODO: follow the Chapter 2 pattern. Figure 4 can use the same toggle as Figure 3.</p>
+        <div class="chapter-band">
+          <p class="chapter-num">05 <span class="phase">Develop</span></p>
+          <h2 id="ch4-h">Ideation, Wireframing &amp; Copywriting</h2>
+          <p>TODO: follow the Chapter 2 pattern.</p>
+        </div>
+
+        <figure class="figure wide toggle-figure">
+          <div class="figure-toggle" role="group" aria-label="Choose which version to show">
+            <button type="button" data-show="ai" aria-pressed="true">AI-generated</button>
+            <button type="button" data-show="human" aria-pressed="false">Human-revised</button>
+          </div>
+          <div class="fig-version" data-version="ai">
+            <img src="images/fig4-ai.svg" alt="AI-generated opt-in screen with pressure copy that says Never go solo again, faint gray body text, four unlabeled sharing toggles all switched on, a large Find my concert crew button, and a tiny Not now link.">
+          </div>
+          <div class="fig-version" data-version="human" hidden>
+            <img src="images/fig4-human.svg" alt="Human-revised opt-in screen titled Find people to go with, explaining exactly what is shared, with labeled toggles switched off by default, a note that location and other playlists are never shared, and equal-sized Not now and Turn on buttons.">
+          </div>
+          <figcaption><strong>Figure 4.</strong> An AI-generated and a human-revised version of the Concert Connect opt-in screen. Concert Connect, the artist "Lumen Bay," and the venue are fictional and were created by the author for illustration.</figcaption>
+        </figure>
       </section>
 
       <!-- ============ CHAPTER 5 ============ -->
       <section id="ch5" class="chapter" aria-labelledby="ch5-h">
-        <p class="chapter-num">06 <span class="phase">Deliver</span></p>
-        <h2 id="ch5-h">Prototyping, Usability Testing &amp; Handoff</h2>
-        <p>TODO: follow the Chapter 2 pattern.</p>
+        <div class="chapter-band">
+          <p class="chapter-num">06 <span class="phase">Deliver</span></p>
+          <h2 id="ch5-h">Prototyping, Usability Testing &amp; Handoff</h2>
+          <p>TODO: follow the Chapter 2 pattern.</p>
+        </div>
       </section>
 
       <!-- ============ TROUBLESHOOTING ============ -->

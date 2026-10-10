@@ -102,6 +102,7 @@ main > section > :not(.wide) { max-width: var(--measure); }
    It "sticks" 1.5rem from the top once you scroll past the cover. */
 .toc {
   position: sticky;
+  z-index: 3;                        /* stays above the maroon bands */
   top: 1.5rem;
   align-self: start;                 /* needed for sticky inside a grid */
   max-height: calc(100vh - 3rem);    /* never taller than the screen... */
@@ -140,6 +141,26 @@ main > section > :not(.wide) { max-width: var(--measure); }
 .rules { padding-left: 1.25rem; }
 .rules li { margin-bottom: 0.75rem; padding-left: 0.25rem; }
 
+/* ---------- Maroon chapter bands (chapters 03–06) ----------
+   The band stretches edge to edge behind the text using a wide box-shadow,
+   then clip-path trims it so it never adds horizontal scrolling. */
+.chapter-band {
+  position: relative;
+  background: var(--maroon);
+  color: var(--white);
+  box-shadow: 0 0 0 100vmax var(--maroon);
+  clip-path: inset(0 -100vmax);
+  padding: 3rem 0 2.5rem;
+  margin-bottom: 2.5rem;
+}
+.chapter-band h2 { color: var(--white); }
+.chapter-band .chapter-num { color: var(--rose-tint); }
+.chapter-band .phase { background: transparent; color: var(--white); border-color: var(--rose); }
+.chapter-band a, .chapter-band .term { color: var(--white); text-decoration-color: var(--rose); }
+.chapter-band .delegation { color: var(--ink); }
+.chapter-band .delegation caption { color: var(--white); }
+.chapter-band .table-wrap { margin-bottom: 0; }
+
 /* ---------- Delegation table ---------- */
 .table-wrap { overflow-x: auto; margin: 2rem 0; }
 .delegation {
@@ -154,22 +175,22 @@ main > section > :not(.wide) { max-width: var(--measure); }
 .delegation td { padding: 0.9rem 1.1rem; vertical-align: top; border-top: 1px solid var(--rose-line); width: 50%; }
 .delegation td + td { border-left: 1px solid var(--rose-line); }
 
-/* ---------- Prompt block ---------- */
+/* ---------- Prompt block (Violet, like the Figma page) ---------- */
 .prompt {
-  margin: 2rem 0; background: var(--white);
-  border: 1px solid var(--rose-line); border-left: 4px solid var(--violet);
-  border-radius: var(--radius); padding: 1.25rem 1.4rem;
+  margin: 2rem 0; background: var(--violet); color: var(--white);
+  border-radius: 15px; padding: 1.4rem 1.5rem;
 }
 .prompt-head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 0.75rem; }
-.prompt-label { margin: 0; font-size: 1rem; color: var(--violet); }
+.prompt-label { margin: 0; font-size: 1rem; color: var(--rose-tint); }
 .prompt-text { margin: 0; font-size: 1rem; line-height: 1.6; }
 .copy-btn {
   font: inherit; font-size: 0.9rem; font-weight: 700; cursor: pointer;
-  color: var(--violet); background: transparent;
-  border: 1.5px solid var(--violet); border-radius: 999px; padding: 0.35rem 0.9rem;
+  color: var(--white); background: transparent;
+  border: 1.5px solid var(--white); border-radius: 999px; padding: 0.35rem 0.9rem;
   min-height: 2.25rem;  /* comfortable touch target */
 }
-.copy-btn:hover { background: var(--violet); color: var(--white); }
+.copy-btn:hover { background: var(--white); color: var(--violet); }
+.prompt :focus-visible { outline-color: var(--white); }
 
 /* ---------- Watch out for ---------- */
 .watch { padding-left: 1.25rem; }
@@ -181,6 +202,9 @@ main > section > :not(.wide) { max-width: var(--measure); }
 .figure.wide { max-width: var(--wide); width: min(var(--wide), 100%); }
 .figure figcaption { font-size: 0.95rem; color: var(--violet); margin-top: 0.9rem; line-height: 1.55; }
 .figure figcaption strong { color: var(--maroon); }
+/* Figures sit on a white card, like the Figma page */
+.figure img { width: 100%; border-radius: 1rem; background: var(--white); }
+
 .placeholder {
   display: grid; place-items: center; text-align: center;
   min-height: 18rem; padding: 2rem;
@@ -253,4 +277,6 @@ main > section > :not(.wide) { max-width: var(--measure); }
   .figure { break-inside: avoid; }
   .term { text-decoration: none; }
   .cover { break-after: page; border: 0; }
+  .chapter-band { background: none; box-shadow: none; clip-path: none; color: var(--ink); padding: 0; }
+  .chapter-band h2 { color: var(--maroon); }
 }
