@@ -305,23 +305,23 @@ main > section > :not(.wide) { max-width: var(--measure); }
 .ph-artist { font-weight: 700; } .ph-venue { color: #B3B3B3; font-size: 0.8rem; }
 .ph-head { font-size: 1.45rem; font-weight: 800; line-height: 1.15; }
 .ph-copy { color: #E8E2E4; line-height: 1.5; }
-.ph-low { color: #535353; }
+.ph-low { color: #8A8A8A; }   /* dimmer than the headline but still 5.4:1 (passes WCAG AA) */
 .ph-rows { position: relative; }
 .ph-row { display: flex; justify-content: space-between; align-items: center; padding: 0.35rem 0; }
 .ph-row .ico { width: 20px; height: 20px; color: #8A8A8A; }
 .ph-badge-side { position: absolute; right: -3.6rem; top: 50%; transform: translateY(-50%); }
-.switch { width: 40px; height: 24px; border-radius: 12px; background: #535353; position: relative; flex: none; }
-.switch::after { content: ""; position: absolute; top: 3px; left: 3px; width: 18px; height: 18px; border-radius: 50%; background: var(--white); }
+.switch { width: 40px; height: 24px; border-radius: 12px; background: #757575; position: relative; flex: none; }  /* off track: 4.1:1 against the screen */
+.switch::after { content: ""; position: absolute; top: 3px; left: 3px; width: 18px; height: 18px; border-radius: 50%; background: var(--white); box-shadow: 0 0 0 1.5px #121212; }  /* dark ring keeps the knob visible on the rose track */
 .switch.on { background: var(--rose); } .switch.on::after { left: 19px; }
 .ph-private { display: flex; gap: 0.5rem; color: #B3B3B3; font-size: 0.8rem; margin-top: 0.6rem !important; }
 .ph-private .ico { width: 15px; height: 15px; flex: none; margin-top: 2px; }
 .ph-spacer { flex: 1; }
 .ph-btn-big { background: var(--rose); color: var(--ink); font-weight: 800; text-align: center; border-radius: 28px; padding: 0.95rem; margin: 0 0 0.7rem !important; }
-.ph-notnow { text-align: center; font-size: 0.65rem; color: #535353; margin: 0 !important; }
+.ph-notnow { text-align: center; font-size: 0.75rem; color: #8A8A8A; margin: 0 !important; }
 .ph-btns { display: flex; gap: 0.7rem; }
 .ph-btn { flex: 1; text-align: center; padding: 0.85rem 0; border-radius: 26px; font-weight: 800; }
 .ph-btn-outline { border: 1.5px solid var(--white); } .ph-btn-fill { background: var(--rose); color: var(--ink); }
-.phone .ia-badge { margin-left: 0.4rem; font-size: 0.75rem; }
+.phone .ia-badge { margin-left: 0.4rem; font-size: 0.75rem; box-shadow: 0 0 0 2px var(--white); }  /* white ring so badges stand out on the dark screen */
 .phone-note { margin: 0; color: var(--violet); }
 @media (max-width: 760px) { .phone-wrap { grid-template-columns: 1fr; justify-items: center; } .phone { width: min(300px, 100%); } .ph-badge-side { right: -0.2rem; } }
 
@@ -338,14 +338,14 @@ main > section > :not(.wide) { max-width: var(--measure); }
 .ia-pill-human { background: var(--maroon); }
 .ia-heading { font-weight: 800; font-size: 1.15rem; color: var(--ink); margin: 0 0 1rem; }
 .ia-tree, .ia-tree ul { list-style: none; margin: 0; padding: 0; }
-.ia-tree ul { margin: 0.5rem 0 0 0.9rem; padding-left: 1.1rem; border-left: 2px solid var(--rose-line); }
+.ia-tree ul { margin: 0.5rem 0 0 0.9rem; padding-left: 1.1rem; border-left: 2px solid #A8716A; }  /* connector lines meet 3:1 */
 .ia-tree li { margin: 0.45rem 0; }
 .ia-node {
-  display: inline-block; padding: 0.35rem 0.8rem; border: 1px solid var(--rose-line); border-radius: 8px;
+  display: inline-block; padding: 0.35rem 0.8rem; border: 1px solid #A8716A; border-radius: 8px;
   background: var(--white); font-size: 0.95rem; font-weight: 500; line-height: 1.35;
 }
 .ia-root { background: #F1ECEA; border-color: transparent; font-weight: 800; }
-.ia-changed { background: var(--rose-tint); border-color: var(--rose); color: var(--maroon); }
+.ia-changed { background: var(--rose-tint); border: 1.5px solid var(--maroon); color: var(--maroon); }
 .ia-buried { border: 1.5px dashed var(--violet); color: var(--violet); }
 .ia-note { font-size: 0.85rem; color: var(--violet); margin-left: 0.4rem; }
 .ia-badge {
